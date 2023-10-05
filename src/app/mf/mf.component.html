@@ -1,0 +1,198 @@
+<section class="container">
+  <h1>Guia de atendimento</h1>
+  <p>Comece aqui</p>
+
+  <form (ngSubmit)="onSubmit()">
+    <div *ngIf="step === 1" class="id-users form-group">
+      <small>Qual o ID do paciente?</small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.nCarteira"
+      />
+    </div>
+
+    <div *ngIf="step === 2" class="id-users2 form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do beneficiário"
+        [(ngModel)]="ficha.nomeBen"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="CPF do beneficiário"
+        [(ngModel)]="ficha.cpf"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        type="text"
+        placeholder="Validade da carteira de identificação"
+        [(ngModel)]="ficha.validade"
+      />
+    </div>
+
+    <div *ngIf="step === 3" class="id-users4 form-group">
+      <small> Insira o registro ANS </small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Número da ANS"
+        [(ngModel)]="ficha.ans"
+      />
+    </div>
+
+    <div *ngIf="step === 4" class="id-users4 form-group">
+      <small> Selecione a unidade de atendimento</small>
+
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="ficha.unidAtend">
+        <option value="1">Unidade 1</option>
+        <option value="2">Unidade 2</option>
+        <option value="3">Unidade 3</option>
+      </select>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="CNPJ"
+        [(ngModel)]="ficha.cnpj"
+      />
+    </div>
+
+    <div *ngIf="step === 5" class="id-users4 form-group">
+      <small> Insira os dados do médico solicitado </small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do médico solicitado"
+        [(ngModel)]="ficha.nomeSolMed"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Conselho Profissiona"
+        [(ngModel)]="ficha.conselhoPro"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Número do conselho"
+        [(ngModel)]="ficha.nConselho"
+      />
+    </div>
+
+    <div *ngIf="step === 6" class="id-users4 form-group">
+      <small> Insira os dados do médico </small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do colaborador"
+        [(ngModel)]="ficha.nomeCol"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Código Operadora"
+        [(ngModel)]="ficha.codOperadora"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Código CNES"
+        [(ngModel)]="ficha.cnes"
+      />
+    </div>
+
+    <div *ngIf="step === 7" class="id-users4 form-group">
+      <small> Insira os dados de internação </small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Data de internação"
+        [(ngModel)]="ficha.dataInternacao"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Quantidade de diárias"
+        [(ngModel)]="ficha.qtdeDiarias"
+      />
+    </div>
+
+    <div *ngIf="step === 8" class="id-users4 form-group">
+      <small> Insira os dados da consulta</small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Informações Médicas"
+        [(ngModel)]="ficha.medicInfo"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="CID"
+        [(ngModel)]="ficha.cid"
+      />
+    </div>
+
+    <!-- <div *ngIf="step === 9" class="id-users4 form-group">
+      <small> Insira os honorários desejados</small>
+      
+      <input
+      type="text"
+      class="form-control"
+      placeholder="Honorários"
+      [(ngModel)]="newHonor"
+      />
+      
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="addHonor()"
+      >OPA</button>
+
+      <p *ngFor="let honor of honors">
+        {{ honor }}
+      </p>
+    
+    </div> -->
+
+  
+
+    <button type="submit" class="btn btn-success" *ngIf="step === 10">
+      Finalizar
+    </button>
+
+    <button
+    type="submit"
+    class="btn btn-success"
+    *ngIf="step <= 9"
+    (click)="nextStep()"
+  >
+    Proximo
+  </button>
+
+  <button
+    type="submit"
+    class="btn btn-dark"
+    *ngIf="step > 1"
+    (click)="backStep()"
+  >
+    voltar
+  </button>
+
+  </form>
+
+ 
+</section>

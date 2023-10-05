@@ -1,0 +1,33 @@
+export class ficha {
+    ans: string = '';
+    nomeSolMed: string = '';
+    honor: string = ''
+    medicInfo: string = '';
+    cpf: string = '';
+    registroAns: string = '';
+    nGuia: string = '';
+    senha: string = '';
+    dataAutorizacao: string = '';
+    dataValidade: string = '';
+    nCarteira: string = '';
+    validade: string = '';
+    nomeBen: string = '';
+    nomeCol: string = '';
+    codOperadora: string = '';
+    nomeContradado: string = '';
+    cnes: string = '';
+    nomeExecultante: string = '';
+    conselhoPro: string = '';
+    nConselho: string = '';
+    cnpj: string = '';
+    nomeHospital: string = '';
+    dataInternacao: string = '';
+    unidAtend: string = '';
+    tipo: string = '';
+    regime: string = '';
+    qtdeDiarias: string = '';
+    opme: string = '';
+    cid: string = '';
+    textarea: string = '';
+    indicacaoClinica: string = '';  
+}
