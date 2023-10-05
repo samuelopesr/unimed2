@@ -10,6 +10,7 @@
         class="form-control"
         placeholder="ID do beneficiário"
         [(ngModel)]="ficha.nCarteira"
+        name="nCarteira"
       />
     </div>
 
@@ -19,6 +20,7 @@
         class="form-control"
         placeholder="Nome do beneficiário"
         [(ngModel)]="ficha.nomeBen"
+        name="ficha.nomeBen"
       />
 
       <input
@@ -26,6 +28,7 @@
         class="form-control"
         placeholder="CPF do beneficiário"
         [(ngModel)]="ficha.cpf"
+        name="cpf"
       />
 
       <input
@@ -33,24 +36,26 @@
         class="form-control"
         type="text"
         placeholder="Validade da carteira de identificação"
-        [(ngModel)]="ficha.validade"
+        [(ngModel)]="ficha.validadeCart"
+        name="validadeCart"
       />
     </div>
 
-    <div *ngIf="step === 3" class="id-users4 form-group">
+    <div *ngIf="step === 3" class="id-users3 form-group">
       <small> Insira o registro ANS </small>
       <input
         type="text"
         class="form-control"
         placeholder="Número da ANS"
         [(ngModel)]="ficha.ans"
+        name="ans"
       />
     </div>
 
     <div *ngIf="step === 4" class="id-users4 form-group">
       <small> Selecione a unidade de atendimento</small>
 
-      <select class="form-select" aria-label="Default select example" [(ngModel)]="ficha.unidAtend">
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="ficha.unidAtend" name="unidAtend">
         <option value="1">Unidade 1</option>
         <option value="2">Unidade 2</option>
         <option value="3">Unidade 3</option>
@@ -61,23 +66,26 @@
         class="form-control"
         placeholder="CNPJ"
         [(ngModel)]="ficha.cnpj"
+        name="cnpj"
       />
     </div>
 
-    <div *ngIf="step === 5" class="id-users4 form-group">
+    <div *ngIf="step === 5" class="id-users5 form-group">
       <small> Insira os dados do médico solicitado </small>
       <input
         type="text"
         class="form-control"
-        placeholder="Nome do médico solicitado"
+        placeholder="Nome do solicitado"
         [(ngModel)]="ficha.nomeSolMed"
+        name="nomeSolMed"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Conselho Profissiona"
+        placeholder="Conselho Profissional"
         [(ngModel)]="ficha.conselhoPro"
+        name="conselhoPro"
       />
 
       <input
@@ -85,16 +93,18 @@
         class="form-control"
         placeholder="Número do conselho"
         [(ngModel)]="ficha.nConselho"
+        name="nConselho"
       />
     </div>
 
-    <div *ngIf="step === 6" class="id-users4 form-group">
+    <div *ngIf="step === 6" class="id-users6 form-group">
       <small> Insira os dados do médico </small>
       <input
         type="text"
         class="form-control"
         placeholder="Nome do colaborador"
         [(ngModel)]="ficha.nomeCol"
+        name="nomeCol"
       />
 
       <input
@@ -102,6 +112,7 @@
         class="form-control"
         placeholder="Código Operadora"
         [(ngModel)]="ficha.codOperadora"
+        name="codOperadora"
       />
 
       <input
@@ -109,16 +120,18 @@
         class="form-control"
         placeholder="Código CNES"
         [(ngModel)]="ficha.cnes"
+        name="cnes"
       />
     </div>
 
-    <div *ngIf="step === 7" class="id-users4 form-group">
+    <div *ngIf="step === 7" class="id-users7 form-group">
       <small> Insira os dados de internação </small>
       <input
         type="text"
         class="form-control"
         placeholder="Data de internação"
         [(ngModel)]="ficha.dataInternacao"
+        name="dataInternacao"
       />
 
       <input
@@ -126,6 +139,7 @@
         class="form-control"
         placeholder="Quantidade de diárias"
         [(ngModel)]="ficha.qtdeDiarias"
+        name="qtdeDiarias"
       />
     </div>
 
@@ -136,6 +150,7 @@
         class="form-control"
         placeholder="Informações Médicas"
         [(ngModel)]="ficha.medicInfo"
+        name="medicInfo"
       />
 
       <input
@@ -143,30 +158,11 @@
         class="form-control"
         placeholder="CID"
         [(ngModel)]="ficha.cid"
+        name="cid"
       />
     </div>
 
-    <!-- <div *ngIf="step === 9" class="id-users4 form-group">
-      <small> Insira os honorários desejados</small>
-      
-      <input
-      type="text"
-      class="form-control"
-      placeholder="Honorários"
-      [(ngModel)]="newHonor"
-      />
-      
-      <button
-        type="button"
-        class="btn btn-success"
-        (click)="addHonor()"
-      >OPA</button>
-
-      <p *ngFor="let honor of honors">
-        {{ honor }}
-      </p>
     
-    </div> -->
 
   
 
