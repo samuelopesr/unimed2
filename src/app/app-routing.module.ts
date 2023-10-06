@@ -5,6 +5,7 @@ import { MfComponent } from './mf/mf.component';
 
 import { FinalComponent } from './mf/final/final.component';
 import { OrcamentoComponent } from './pages/orcamento/orcamento.component';
+import { SecUnimedComponent } from './pages/sec-unimed/sec-unimed.component';
 OrcamentoComponent
 
 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'final',
     component: FinalComponent
+  },
+  {
+    path: 'secUni',
+    component: SecUnimedComponent
   },
   {
     path:'mf-mainpage',

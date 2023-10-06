@@ -10,9 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { FinalComponent } from './mf/final/final.component';
 import { OrcamentoComponent } from './pages/orcamento/orcamento.component';
-
-
-
+import { SecUnimedComponent } from './pages/sec-unimed/sec-unimed.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +19,7 @@ import { OrcamentoComponent } from './pages/orcamento/orcamento.component';
     HomeComponent,
     FinalComponent,
     OrcamentoComponent,
-   
+    SecUnimedComponent
   ],
 
   imports: [

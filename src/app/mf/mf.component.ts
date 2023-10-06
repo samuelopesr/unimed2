@@ -15,8 +15,9 @@ export class MfComponent implements OnInit{
   ficha: ficha = new ficha();
   key: string = ''; 
   step = 1;
+ 
+  val = false
 
-  newHonor = '' as string
   newNome = '' as string
   newQtde = '' as string
 
@@ -45,7 +46,6 @@ export class MfComponent implements OnInit{
     {
       this.step++
       console.log("step" + this.step);
-      
     }
   }
   
@@ -57,7 +57,7 @@ export class MfComponent implements OnInit{
     }
   }
 
-  constructor(private fichaService: FichaService, private fichaData: DataFichaService, private db: AngularFireDatabase){ 
+  constructor(private fichaService: FichaService, private fichaData: DataFichaService){ 
   }
 
   ngOnInit(){ 
@@ -66,7 +66,6 @@ export class MfComponent implements OnInit{
         this.ficha = { ...data.ficha };
         this.key = data.key;
         console.log(data.ficha);
-        
       }
     });
   }
@@ -76,9 +75,13 @@ export class MfComponent implements OnInit{
     if (this.key && this.ficha) {
       this.fichaService.update(this.ficha, this.key);   
     } else {
-      if (this.step === 5) {
+      if (this.step === 4) {
         this.fichaService.insert(this.ficha);
-        
+        this.val = true
+          if(this.val === true)
+          {
+            this.nextStep()
+          }
       }
     }
 

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+import { DataFichaService } from 'src/app/ficha-data.service';
+import { FichaService } from 'src/app/ficha.service';
 
 @Component({
   selector: 'app-sec-unimed',
@@ -6,5 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./sec-unimed.component.scss']
 })
 export class SecUnimedComponent {
+  fichas:  Observable<any> = new Observable<any>()
 
+
+  
+  constructor(private fichaDataService: DataFichaService, private fichaService: FichaService,private db: AngularFireDatabase){
+
+    
+  }
+  
+
+  ngOnInit(){
+    this.fichas = this.fichaService.getAll()
+  }
 }

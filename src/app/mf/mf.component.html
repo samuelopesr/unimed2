@@ -1,8 +1,8 @@
 <section class="container">
-  <h1>Guia de atendimento</h1>
-  <p>Comece aqui</p>
+  <h1>Guia de Internamento</h1>
 
   <form (ngSubmit)="onSubmit()">
+    <p>Começar é fácil</p>
     <div *ngIf="step === 1" class="id-users form-group">
       <small>Qual o ID do paciente?</small>
       <input
@@ -41,85 +41,51 @@
     </div>
 
     <div *ngIf="step === 3" class="id-users3 form-group">
-      <small> Confira os dados </small>
+      <small> Dados do cooperado </small>
+
       <input
         type="text"
         class="form-control"
-        placeholder="ID do beneficiário"
-        [(ngModel)]="ficha.idBen"
-        name="idBen"
+        placeholder="Nº de conselho (Cooperado)"
+        [(ngModel)]="ficha.nConselhoC"
+        name="nConselhoC"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Nº de conselho"
-        [(ngModel)]="ficha.nConselho"
-        name="nConselho"
+        placeholder="Nome do procedimento"
+        [(ngModel)]="ficha.proced"
+        name="proced"
       />
     </div>
 
     <div *ngIf="step === 4" class="id-users4 form-group">
-      <small> Confira os dados do paciente </small>
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="ID do Beneficiário"
-        [(ngModel)]="ficha.idBen"
-        name="idBen"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Número de conselho"
-        [(ngModel)]="ficha.nConselho"
-        name="nConselho"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do solicitado"
-        [(ngModel)]="ficha.medicInfo"
-        name="medicInfo"
-      />
-    </div>
-
-    <div *ngIf="step === 5" class="id-users5 form-group">
       <small> dados do paciente </small>
 
       <input
         type="text"
         class="form-control"
-        placeholder="ID do beneficiário"
-        [(ngModel)]="ficha.idBen"
-        name="idBen"
+        placeholder="Nº de conselho (Paciente)"
+        [(ngModel)]="ficha.nConselhoC"
+        name="nConselhoC"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Número de conselho"
-        [(ngModel)]="ficha.nConselho"
-        name="nConselho"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Informações médicas"
-        [(ngModel)]="ficha.medicInfo"
-        name="medicInfo"
+        placeholder="Nome do procedimento"
+        [(ngModel)]="ficha.proced"
+        name="proced"
       />
 
       <input
         type="text"
         class="form-control"
         placeholder="Nome do Material"
+        [(ngModel)]="ficha.nomeMaterial"
         [(ngModel)]="newNome"
-        name="nomeMaterial"
+        name="newNome"
       />
 
       <input
@@ -127,11 +93,12 @@
         class="form-control"
         placeholder="Quantidade Material"
         [(ngModel)]="ficha.qtdeMaterial"
-        name="qtdeMaterial"
         [(ngModel)]="newQtde"
+        name="newQtde"
       />
 
       <button
+        name="addMaterial"
         type="button"
         class="btn btn-dark"
         (click)="addMaterial(newNome, newQtde)"
@@ -143,35 +110,38 @@
         <p>
           {{ material.nome }}
           {{ material.quantidade }}
-          <button type="button" class="btn btn-danger" (click)="remove(i)">
+          <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)">
             remover
           </button>
         </p>
-      </div>   
+      </div>
     </div>
 
-    <button   
-      type="submit"
-      class="btn btn-success"
-      *ngIf="step === 5"
-    >
+    
+    <button
+    type="submit"
+    class="btn btn-success"
+    *ngIf="step === 4"    
+      >
       Finalizar
     </button>
+    
+    <div *ngIf="step === 5">
+      <h1>Guia envianda com sucesso!</h1>
 
-    <button
-      
-    type="button"
-    class="btn btn-success"
-    routerLink="/mf-mainpage"
-    *ngIf="step === 5"
-  >
-   Voltar para a página principal
-  </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        routerLink="/mf-mainpage"
+      >
+        Realizar um novo atendimento
+      </button>
+    </div>
 
     <button
       type="submit"
       class="btn btn-success"
-      *ngIf="step <= 4"
+      *ngIf="step <= 3"
       (click)="nextStep()"
     >
       Proximo
@@ -180,7 +150,7 @@
     <button
       type="submit"
       class="btn btn-dark"
-      *ngIf="step > 1"
+      *ngIf="step > 1 && step <= 4"
       (click)="backStep()"
     >
       voltar

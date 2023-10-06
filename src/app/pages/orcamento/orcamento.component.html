@@ -21,7 +21,7 @@
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        [attr.data-target]="'#ex' + ficha.idBen"
+        [attr.data-target]="'#ex' + ficha.key"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
@@ -29,41 +29,96 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" [attr.id]="'ex' + ficha.idBen">
+      <div class="collapse navbar-collapse" [attr.id]="'ex' + ficha.key">
         <ul class="navbar-nav mr-auto text-light">
-          <li class="nav-item active">
-            Nome dos materiais:
+          <li class="nav-item active m-1">
+            ID do beneficiário:
             <strong>
-              
-                {{ ficha.material.nome }}
-               
+              {{ ficha.idBen }}
             </strong>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item active m-1">
+            Nome do material:
+            <strong>
+              {{ ficha.nomeMaterial }}
+            </strong>
+          </li>
+
+          <li class="nav-item active m-1">
             Quantidade dos materiais:
             <strong>
-              
-                {{ ficha.material.quantidade }}
-              
+              {{ ficha.qtdeMaterial }}
             </strong>
           </li>
-          <li>
-            <div class="input-group input-group-sm mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Fornecedor</span>
-              </div>
-              <input [(ngModel)]="fornecedorText" type="text"
-               class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-            </div>
+
+          <h2 style="font-size: 1.5rem">Dados do cooperado:</h2>
+          <li class="nav-item active m-2">
+            Nº de conselho (cooperado):
+            <strong>
+              {{ ficha.nConselhoC }}
+            </strong>
           </li>
         </ul>
 
-        <button (click)="sendTo()" type="button" class="btn btn-primary">
-          Enviar p/ avaliador
-        </button>
+        <h2 class="text-light" style="font-size: 1.5rem">Relizar orçamento:</h2>
+
+        <form>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm"
+                >R$:
+              </span>
+            </div>
+            <input
+            name="orcam"
+              type="number"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              
+            />
+          </div>
+
+          <ul class="navbar-nav mr-auto text-light">
+            <li>
+              <select>
+                <option
+                selected >Selecione o 1º fornecedor</option>
+                <option value="1">Fornecedor 1</option>
+                <option value="2">Fornecedor 2</option>
+                <option value="3">Fornecedor 3</option>
+              </select>
+            </li>
+            <li>
+              <select>
+                <option selected>Selecione o 2º fornecedor</option>
+                <option value="1">Fornecedor 1</option>
+                <option value="2">Fornecedor 2</option>
+                <option value="3">Fornecedor 3</option>
+              </select>
+            </li>
+            <li>
+              <select>
+                <option selected>Selecione o 3º fornecedor</option>
+                <option value="1">Fornecedor 1</option>
+                <option value="2">Fornecedor 2</option>
+                <option value="3">Fornecedor 3</option>
+              </select>
+            </li>
+          </ul>
+
+          <button
+          name="addOrc" 
+       
+          type="submit"
+          class="btn btn-primary">
+            Atualizar orçamento
+          </button>
+        </form>
       </div>
     </nav>
 
-    <div class="collapse navbar-collapse" id="ex"></div>
+    
   </div>
 </section>

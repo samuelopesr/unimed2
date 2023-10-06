@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
+import { ficha } from 'src/app/ficha';
 import { DataFichaService } from 'src/app/ficha-data.service';
 import { FichaService } from 'src/app/ficha.service';
 
@@ -13,11 +14,14 @@ import { FichaService } from 'src/app/ficha.service';
 export class OrcamentoComponent {
   fichas:  Observable<any> = new Observable<any>()
 
-  
+  newForn1 = '' as string
+  newForn2 = '' as string
+  newForn3 = '' as string
+  orcam = 0 as number
+
 
   constructor(private fichaDataService: DataFichaService, private fichaService: FichaService,private db: AngularFireDatabase){
-
-    
+  
   }
   
 
