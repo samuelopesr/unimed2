@@ -9,12 +9,20 @@
         type="text"
         class="form-control"
         placeholder="ID do beneficiário"
-        [(ngModel)]="ficha.nCarteira"
-        name="nCarteira"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
       />
     </div>
 
     <div *ngIf="step === 2" class="id-users2 form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
+      />
+
       <input
         type="text"
         class="form-control"
@@ -30,125 +38,78 @@
         [(ngModel)]="ficha.cpf"
         name="cpf"
       />
-
-      <input
-        type="text"
-        class="form-control"
-        type="text"
-        placeholder="Validade da carteira de identificação"
-        [(ngModel)]="ficha.validadeCart"
-        name="validadeCart"
-      />
     </div>
 
     <div *ngIf="step === 3" class="id-users3 form-group">
-      <small> Insira o registro ANS </small>
+      <small> Confira os dados </small>
       <input
         type="text"
         class="form-control"
-        placeholder="Número da ANS"
-        [(ngModel)]="ficha.ans"
-        name="ans"
-      />
-    </div>
-
-    <div *ngIf="step === 4" class="id-users4 form-group">
-      <small> Selecione a unidade de atendimento</small>
-
-      <select class="form-select" aria-label="Default select example" [(ngModel)]="ficha.unidAtend" name="unidAtend">
-        <option value="1">Unidade 1</option>
-        <option value="2">Unidade 2</option>
-        <option value="3">Unidade 3</option>
-      </select>
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="CNPJ"
-        [(ngModel)]="ficha.cnpj"
-        name="cnpj"
-      />
-    </div>
-
-    <div *ngIf="step === 5" class="id-users5 form-group">
-      <small> Insira os dados do médico solicitado </small>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do solicitado"
-        [(ngModel)]="ficha.nomeSolMed"
-        name="nomeSolMed"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Conselho Profissional"
-        [(ngModel)]="ficha.conselhoPro"
-        name="conselhoPro"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Número do conselho"
+        placeholder="Nº de conselho"
         [(ngModel)]="ficha.nConselho"
         name="nConselho"
       />
     </div>
 
-    <div *ngIf="step === 6" class="id-users6 form-group">
-      <small> Insira os dados do médico </small>
+    <div *ngIf="step === 4" class="id-users4 form-group">
+      <small> Confira os dados do paciente </small>
+
       <input
         type="text"
         class="form-control"
-        placeholder="Nome do colaborador"
-        [(ngModel)]="ficha.nomeCol"
-        name="nomeCol"
+        placeholder="ID do Beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Código Operadora"
-        [(ngModel)]="ficha.codOperadora"
-        name="codOperadora"
+        placeholder="Número de conselho"
+        [(ngModel)]="ficha.nConselho"
+        name="nConselho"
       />
 
       <input
         type="text"
         class="form-control"
-        placeholder="Código CNES"
-        [(ngModel)]="ficha.cnes"
-        name="cnes"
-      />
-    </div>
-
-    <div *ngIf="step === 7" class="id-users7 form-group">
-      <small> Insira os dados de internação </small>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Data de internação"
-        [(ngModel)]="ficha.dataInternacao"
-        name="dataInternacao"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Quantidade de diárias"
-        [(ngModel)]="ficha.qtdeDiarias"
-        name="qtdeDiarias"
+        placeholder="Nome do solicitado"
+        [(ngModel)]="ficha.medicInfo"
+        name="medicInfo"
       />
     </div>
 
-    <div *ngIf="step === 8" class="id-users4 form-group">
-      <small> Insira os dados da consulta</small>
+    <div *ngIf="step === 5" class="id-users5 form-group">
+      <small> dados do paciente </small>
+
       <input
         type="text"
         class="form-control"
-        placeholder="Informações Médicas"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Número de conselho"
+        [(ngModel)]="ficha.nConselho"
+        name="nConselho"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Informações médicas"
         [(ngModel)]="ficha.medicInfo"
         name="medicInfo"
       />
@@ -156,39 +117,73 @@
       <input
         type="text"
         class="form-control"
-        placeholder="CID"
-        [(ngModel)]="ficha.cid"
-        name="cid"
+        placeholder="Nome do Material"
+        [(ngModel)]="newNome"
+        name="nomeMaterial"
       />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Quantidade Material"
+        [(ngModel)]="ficha.qtdeMaterial"
+        name="qtdeMaterial"
+        [(ngModel)]="newQtde"
+      />
+
+      <button
+        type="button"
+        class="btn btn-dark"
+        (click)="addMaterial(newNome, newQtde)"
+      >
+        Adicionar
+      </button>
+
+      <div *ngFor="let material of ficha.materiais; let i = index">
+        <p>
+          {{ material.nome }}
+          {{ material.quantidade }}
+          <button type="button" class="btn btn-danger" (click)="remove(i)">
+            remover
+          </button>
+        </p>
+      </div>   
     </div>
 
-    
-
-  
-
-    <button type="submit" class="btn btn-success" *ngIf="step === 10">
+    <button   
+      type="submit"
+      class="btn btn-success"
+      *ngIf="step === 5"
+    >
       Finalizar
     </button>
 
     <button
-    type="submit"
+      
+    type="button"
     class="btn btn-success"
-    *ngIf="step <= 9"
-    (click)="nextStep()"
+    routerLink="/mf-mainpage"
+    *ngIf="step === 5"
   >
-    Proximo
+   Voltar para a página principal
   </button>
 
-  <button
-    type="submit"
-    class="btn btn-dark"
-    *ngIf="step > 1"
-    (click)="backStep()"
-  >
-    voltar
-  </button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      *ngIf="step <= 4"
+      (click)="nextStep()"
+    >
+      Proximo
+    </button>
 
+    <button
+      type="submit"
+      class="btn btn-dark"
+      *ngIf="step > 1"
+      (click)="backStep()"
+    >
+      voltar
+    </button>
   </form>
-
- 
 </section>

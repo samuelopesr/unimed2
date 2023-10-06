@@ -5,18 +5,23 @@ import { AppComponent } from './app.component';
 import { MfComponent } from './mf/mf.component';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
-import { MainComponent } from './main/main.component';
-import { SecUnimedComponent } from './sec-unimed/sec-unimed.component';
+
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { FinalComponent } from './mf/final/final.component';
+import { OrcamentoComponent } from './pages/orcamento/orcamento.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MfComponent,
-    MainComponent,
-    SecUnimedComponent,
     HomeComponent,
+    FinalComponent,
+    OrcamentoComponent,
+   
   ],
 
   imports: [

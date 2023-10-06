@@ -1,26 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
+
 import { MfComponent } from './mf/mf.component';
-import { SecUnimedComponent } from './sec-unimed/sec-unimed.component';
+
+import { FinalComponent } from './mf/final/final.component';
+import { OrcamentoComponent } from './pages/orcamento/orcamento.component';
+OrcamentoComponent
+
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: '/mf-mainpage',
     pathMatch: 'full'
   },
   {
-    path: 'main',
-    component: MainComponent
+    path: 'orc',
+    component: OrcamentoComponent
+  },
+  {
+    path: 'final',
+    component: FinalComponent
+  },
+  {
+    path:'mf-mainpage',
+    component: FinalComponent
   },
   {
     path: 'mf',
     component: MfComponent
-  },
-  {
-    path: 'secUni',
-    component: SecUnimedComponent
   }
 ];
 

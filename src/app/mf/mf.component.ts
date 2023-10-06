@@ -11,10 +11,33 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class MfComponent implements OnInit{
   
+  guiaDoPaciente = 0
   ficha: ficha = new ficha();
   key: string = ''; 
   step = 1;
 
+  newHonor = '' as string
+  newNome = '' as string
+  newQtde = '' as string
+
+  addMaterial(nome: string, quantidade: string)
+  {
+    this.ficha.materiais.push({
+      nome, 
+      quantidade
+    })
+
+  this.newNome = '';
+  this.newQtde = '';
+
+  }
+
+  remove(index: number) {
+    if (index >= 0 && index < this.ficha.materiais.length) {
+      this.ficha.materiais.splice(index, 1); 
+    }
+  }
+  
 
   nextStep()
   {
@@ -34,20 +57,10 @@ export class MfComponent implements OnInit{
     }
   }
 
-  constructor(private fichaService: FichaService, private fichaData: DataFichaService, private db: AngularFireDatabase){
-
-
-    console.log(db.list.length);
-    
-    
-    console.log(this.ficha);     
+  constructor(private fichaService: FichaService, private fichaData: DataFichaService, private db: AngularFireDatabase){ 
   }
 
   ngOnInit(){ 
-    console.log(this.fichaData);
-    
-    console.log(this.fichaService);
-
     this.fichaData.currentFicha.subscribe(data => {
       if (data.ficha && data.key) {
         this.ficha = { ...data.ficha };
@@ -60,12 +73,10 @@ export class MfComponent implements OnInit{
 
   onSubmit() {
 
-    console.log(this.ficha.nCarteira);
-    
     if (this.key && this.ficha) {
       this.fichaService.update(this.ficha, this.key);   
     } else {
-      if (this.step === 10) {
+      if (this.step === 5) {
         this.fichaService.insert(this.ficha);
         
       }

@@ -1,23 +1,13 @@
 export class ficha {
-    ans: string = '';
-    nomeSolMed: string = '';
-    honor: string = ''
+
+    nomeMaterial:  string = '';
+    qtdeMaterial: string = '';
     medicInfo: string = '';
     cpf: string = '';
-    nCarteira: string = '';
-    validadeCart: string = '';
+    idBen: string = '';
     nomeBen: string = '';
-    nomeCol: string = '';
-    codOperadora: string = '';
-    nomeContradado: string = '';
-    cnes: string = '';
-    conselhoPro: string = '';
     nConselho: string = '';
-    cnpj: string = '';
-    dataInternacao: string = '';
-    unidAtend: string = '';
-    regime: string = '';
-    qtdeDiarias: string = '';
-    cid: string = '';
-    indicacaoClinica: string = '';  
+    materiais: { nome: string, quantidade: string }[] = [];
+  
+  
 }

@@ -8,6 +8,7 @@ import { map } from 'rxjs'
 })
 export class FichaService {
 
+
   insert(ficha: ficha){
     this.database.list('ficha').push(ficha).then((result:any) => {
       console.log(result.key);
