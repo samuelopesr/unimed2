@@ -1,159 +1,151 @@
-<section class="container">
-  <h1>Guia de Internamento</h1>
+<section class="container-fluid">
+  
 
-  <form (ngSubmit)="onSubmit()">
-    <p>Começar é fácil</p>
-    <div *ngIf="step === 1" class="id-users form-group">
-      <small>Qual o ID do paciente?</small>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="ID do beneficiário"
-        [(ngModel)]="ficha.idBen"
-        name="idBen"
-      />
-    </div>
-
-    <div *ngIf="step === 2" class="id-users2 form-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="ID do beneficiário"
-        [(ngModel)]="ficha.idBen"
-        name="idBen"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do beneficiário"
-        [(ngModel)]="ficha.nomeBen"
-        name="ficha.nomeBen"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="CPF do beneficiário"
-        [(ngModel)]="ficha.cpf"
-        name="cpf"
-      />
-    </div>
-
-    <div *ngIf="step === 3" class="id-users3 form-group">
-      <small> Dados do cooperado </small>
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nº de conselho (Cooperado)"
-        [(ngModel)]="ficha.nConselhoC"
-        name="nConselhoC"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do procedimento"
-        [(ngModel)]="ficha.proced"
-        name="proced"
-      />
-    </div>
-
-    <div *ngIf="step === 4" class="id-users4 form-group">
-      <small> dados do paciente </small>
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nº de conselho (Paciente)"
-        [(ngModel)]="ficha.nConselhoP"
-        name="nConselhoP"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do procedimento"
-        [(ngModel)]="ficha.proced"
-        name="proced"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nome do Material"
-        [(ngModel)]="ficha.nomeMaterial"
-        [(ngModel)]="newNome"
-        name="newNome"
-      />
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Quantidade Material"
-        [(ngModel)]="ficha.qtdeMaterial"
-        [(ngModel)]="newQtde"
-        name="newQtde"
-      />
-
-      <button
-        name="addMaterial"
-        type="button"
-        class="btn btn-dark"
-        (click)="addMaterial(newNome, newQtde)"
-      >
-        Adicionar
-      </button>
-
-      <div *ngFor="let material of ficha.materiais; let i = index">
-        <p>
-          {{ material.nome }}
-          {{ material.quantidade }}
-          <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)">
-            remover
+  <div class="row">
+    <div class="col-6" style="background-color: rgb(240,242,245);">
+      <img style="padding-left: 15%;" class="w-100" src="../../assets/image.png" alt="">
+      <h1 style="text-align: center;">Guia de Internamento</h1>
+      <form (ngSubmit)="onSubmit()" style="text-align: center;">
+        <p>Começar é fácil</p>
+        <div *ngIf="step === 1" class="id-users form-group" style="background-color: rgba(0, 255, 255, 0);">
+          <span style="">Informe o id de <br> identificação do <br> paciente</span><div class="v-separator"></div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID do beneficiário"
+            [(ngModel)]="ficha.idBen"
+            name="idBen"
+          />
+        </div>
+        <div *ngIf="step === 2" class="id-users2 form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID do beneficiário"
+            [(ngModel)]="ficha.idBen"
+            name="idBen"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome do beneficiário"
+            [(ngModel)]="ficha.nomeBen"
+            name="ficha.nomeBen"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="CPF do beneficiário"
+            [(ngModel)]="ficha.cpf"
+            name="cpf"
+          />
+        </div>
+        <div *ngIf="step === 3" class="id-users3 form-group">
+          <small> Dados do cooperado </small>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nº de conselho (Cooperado)"
+            [(ngModel)]="ficha.nConselhoC"
+            name="nConselhoC"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome do procedimento"
+            [(ngModel)]="ficha.proced"
+            name="proced"
+          />
+        </div>
+        <div *ngIf="step === 4" class="id-users4 form-group">
+          <small> dados do paciente </small>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nº de conselho (Paciente)"
+            [(ngModel)]="ficha.nConselhoP"
+            name="nConselhoP"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome do procedimento"
+            [(ngModel)]="ficha.proced"
+            name="proced"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome do Material"
+            [(ngModel)]="ficha.nomeMaterial"
+            [(ngModel)]="newNome"
+            name="newNome"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Quantidade Material"
+            [(ngModel)]="ficha.qtdeMaterial"
+            [(ngModel)]="newQtde"
+            name="newQtde"
+          />
+          <button
+            name="addMaterial"
+            type="button"
+            class="btn btn-dark"
+            (click)="addMaterial(newNome, newQtde)"
+          >
+            Adicionar
           </button>
-        </p>
-      </div>
-    </div>
-
-    
-    <button
-    type="submit"
-    class="btn btn-success"
-    *ngIf="step === 4"    
-      >
-      Finalizar
-    </button>
-    
-    <div *ngIf="step === 5">
-      <h1>Guia envianda com sucesso!</h1>
-
-      <button
-        type="button"
+          <div *ngFor="let material of ficha.materiais; let i = index">
+            <p>
+              {{ material.nome }}
+              {{ material.quantidade }}
+              <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)">
+                remover
+              </button>
+            </p>
+          </div>
+        </div>
+      
+        <button
+        type="submit"
         class="btn btn-success"
-        routerLink="/mf-mainpage"
-      >
-        Realizar um novo atendimento
-      </button>
+        *ngIf="step === 4"
+          >
+          Finalizar
+        </button>
+      
+        <div *ngIf="step === 5">
+          <h1>Guia envianda com sucesso!</h1>
+          <button
+            type="button"
+            class="btn btn-success"
+            routerLink="/mf-mainpage"
+          >
+            Realizar um novo atendimento
+          </button>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-success"
+          *ngIf="step <= 3"
+          (click)="nextStep()"
+        >
+          Proximo
+        </button>
+        <button
+          type="submit"
+          class="btn btn-dark"
+          *ngIf="step > 1 && step <= 4"
+          (click)="backStep()"
+        >
+          voltar
+        </button>
+      </form>
     </div>
-
-    <button
-      type="submit"
-      class="btn btn-success"
-      *ngIf="step <= 3"
-      (click)="nextStep()"
-    >
-      Proximo
-    </button>
-
-    <button
-      type="submit"
-      class="btn btn-dark"
-      *ngIf="step > 1 && step <= 4"
-      (click)="backStep()"
-    >
-      voltar
-    </button>
-  </form>
+    <div class="col-6" style="background-color: antiquewhite;">
+      a
+    </div>
+  </div>
 </section>
