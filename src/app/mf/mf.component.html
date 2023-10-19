@@ -2,20 +2,22 @@
   
 
   <div class="row">
-    <div class="col-6" style="background-color: rgb(240,242,245);">
-      <img style="padding-left: 15%;" class="w-100" src="../../assets/image.png" alt="">
+    <div class="col-7" style="background-color: rgb(240,242,245);">
+      <img style="padding-left: 15%; padding-top: 10%; padding-bottom: 10%;" class="w-100" src="../../assets/image.png" alt="unimed-logo">
       <h1 style="text-align: center;">Guia de Internamento</h1>
       <form (ngSubmit)="onSubmit()" style="text-align: center;">
-        <p>Começar é fácil</p>
+        <p style="padding-bottom: 10%;">Começar é fácil</p>
         <div *ngIf="step === 1" class="id-users form-group" style="background-color: rgba(0, 255, 255, 0);">
-          <span style="">Informe o id de <br> identificação do <br> paciente</span><div class="v-separator"></div>
+          <span>Informe o id de <br> identificação do <br> paciente</span><div class="v-separator"></div>
           <input
             type="text"
             class="form-control"
             placeholder="ID do beneficiário"
             [(ngModel)]="ficha.idBen"
             name="idBen"
+            style="margin-top: 10%; margin-bottom: 10%; padding: 6% 8% 6% 8%;"
           />
+          <span>Mais informações</span>
         </div>
         <div *ngIf="step === 2" class="id-users2 form-group">
           <input
@@ -132,7 +134,7 @@
           *ngIf="step <= 3"
           (click)="nextStep()"
         >
-          Proximo
+          Confirmar
         </button>
         <button
           type="submit"
@@ -144,7 +146,7 @@
         </button>
       </form>
     </div>
-    <div class="col-6" style="background-color: antiquewhite;">
+    <div class="col-5" style="background-color: antiquewhite;">
       a
     </div>
   </div>
