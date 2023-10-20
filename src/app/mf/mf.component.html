@@ -49,13 +49,14 @@
           <span>Mais informações</span>
         </div>
         <div *ngIf="step === 3" class="id-users3 form-group">
-          <small> Dados do cooperado </small>
+          <small> Dados do <br> cooperado </small>
           <input
             type="text"
             class="form-control"
             placeholder="Nº de conselho (Cooperado)"
             [(ngModel)]="ficha.nConselhoC"
             name="nConselhoC"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -63,7 +64,9 @@
             placeholder="Nome do procedimento"
             [(ngModel)]="ficha.proced"
             name="proced"
+            style="margin-top: 1%; margin-bottom: 8%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
+          <span>Mais Informações</span>
         </div>
         <div *ngIf="step === 4" class="id-users4 form-group">
           <small> dados do paciente </small>
@@ -73,6 +76,7 @@
             placeholder="Nº de conselho (Paciente)"
             [(ngModel)]="ficha.nConselhoP"
             name="nConselhoP"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -80,6 +84,7 @@
             placeholder="Nome do procedimento"
             [(ngModel)]="ficha.proced"
             name="proced"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -88,6 +93,7 @@
             [(ngModel)]="ficha.nomeMaterial"
             [(ngModel)]="newNome"
             name="newNome"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -96,12 +102,14 @@
             [(ngModel)]="ficha.qtdeMaterial"
             [(ngModel)]="newQtde"
             name="newQtde"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <button
             name="addMaterial"
             type="button"
             class="btn btn-dark"
             (click)="addMaterial(newNome, newQtde)"
+            style="margin-top: 2%;"
           >
             Adicionar
           </button>
@@ -109,7 +117,7 @@
             <p>
               {{ material.nome }}
               {{ material.quantidade }}
-              <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)">
+              <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)" style="margin-top: 2%;">
                 remover
               </button>
             </p>
@@ -120,16 +128,18 @@
         type="submit"
         class="btn btn-success"
         *ngIf="step === 4"
+        style="background-color: #009557; margin-top: 6.2%; margin-bottom: 7.5%; padding: 1% 8% 1% 8%;"
           >
           Finalizar
         </button>
       
         <div *ngIf="step === 5">
-          <h1>Guia envianda com sucesso!</h1>
+          <h1 style="padding-bottom: 12%; padding-top: 12%;">Guia envianda com sucesso!</h1>
           <button
             type="button"
             class="btn btn-success"
             routerLink="/mf-mainpage"
+            style="background-color: #009557; margin-top: 6.2%; margin-bottom: 7.5%; padding: 1% 8% 1% 8%;"
           >
             Realizar um novo atendimento
           </button>
