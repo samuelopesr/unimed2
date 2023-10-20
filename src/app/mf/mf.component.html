@@ -2,30 +2,33 @@
   
 
   <div class="row">
-    <div class="col-7" style="background-color: rgb(240,242,245);">
-      <img style="padding-left: 15%; padding-top: 10%; padding-bottom: 10%;" class="w-100" src="../../assets/image.png" alt="unimed-logo">
+    <div class="col-7" style="background-color: rgb(240, 242, 245);">
+      <img style="margin: 5% 0% 7% 30.5%;" src="../../assets/image.png" alt="unimed-logo">
       <h1 style="text-align: center;">Guia de Internamento</h1>
       <form (ngSubmit)="onSubmit()" style="text-align: center;">
-        <p style="padding-bottom: 10%;">Começar é fácil</p>
-        <div *ngIf="step === 1" class="id-users form-group" style="background-color: rgba(0, 255, 255, 0);">
-          <span>Informe o id de <br> identificação do <br> paciente</span><div class="v-separator"></div>
+        <p style="padding-bottom: 4%;">Começar é fácil</p>
+        <div *ngIf="step === 1" class="id-users form-group">
+          <span>Informe o id de <br> identificação do <br> paciente</span>
+          
           <input
             type="text"
             class="form-control"
             placeholder="ID do beneficiário"
             [(ngModel)]="ficha.idBen"
             name="idBen"
-            style="margin-top: 10%; margin-bottom: 10%; padding: 6% 8% 6% 8%;"
+            style="margin-top: 4%; margin-bottom: 6%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <span>Mais informações</span>
         </div>
         <div *ngIf="step === 2" class="id-users2 form-group">
+          <span>confira os dados <br> do paciente</span>
           <input
             type="text"
             class="form-control"
             placeholder="ID do beneficiário"
             [(ngModel)]="ficha.idBen"
             name="idBen"
+            style="margin-top: 2%; margin-bottom: 1%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -33,6 +36,7 @@
             placeholder="Nome do beneficiário"
             [(ngModel)]="ficha.nomeBen"
             name="ficha.nomeBen"
+            style="margin-top: 1%; margin-bottom: 1%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
           <input
             type="text"
@@ -40,7 +44,9 @@
             placeholder="CPF do beneficiário"
             [(ngModel)]="ficha.cpf"
             name="cpf"
+            style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%; padding: 3% 4% 3% 4%;"
           />
+          <span>Mais informações</span>
         </div>
         <div *ngIf="step === 3" class="id-users3 form-group">
           <small> Dados do cooperado </small>
@@ -133,6 +139,7 @@
           class="btn btn-success"
           *ngIf="step <= 3"
           (click)="nextStep()"
+          style="background-color: #009557; margin-top: 6.2%; margin-bottom: 7.5%; padding: 1% 8% 1% 8%;"
         >
           Confirmar
         </button>
@@ -141,13 +148,14 @@
           class="btn btn-dark"
           *ngIf="step > 1 && step <= 4"
           (click)="backStep()"
-        >
+          style="margin-left: 5%; margin-top: 6.2%; margin-bottom: 7.5%; padding: 1% 8% 1% 8%;"
+        > 
           voltar
         </button>
       </form>
     </div>
-    <div class="col-5" style="background-color: antiquewhite;">
-      a
+    <div class="col-5" style="background-color: rgb(240,242,245);">
+      <img  class=" " src="../../assets/Design sem nome (1) 3 (1).png" alt="" style="height: 100%; width: 100%; margin: 0% 0% 0% 2%;">
     </div>
   </div>
 </section>
