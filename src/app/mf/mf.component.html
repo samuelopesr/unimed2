@@ -82,9 +82,9 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Nome do Material"
-        [(ngModel)]="ficha.nomeMaterial"
-        [(ngModel)]="newNome"
+        placeholder="Código do Material"
+        [(ngModel)]="ficha.codigoMaterial"
+        [(ngModel)]="searchCode"
         name="newNome"
       />
 
@@ -101,39 +101,82 @@
         name="addMaterial"
         type="button"
         class="btn btn-dark"
-        (click)="addMaterial(newNome, newQtde)"
+        (click)="addMaterial(searchCode, newQtde)"
       >
         Adicionar
       </button>
 
       <div *ngFor="let material of ficha.materiais; let i = index">
         <p>
-          {{ material.nome }}
+          {{ material.codigo }}
           {{ material.quantidade }}
-          <button name="remove" type="button" class="btn btn-danger" (click)="remove(i)">
+          <button
+            name="remove"
+            type="button"
+            class="btn btn-danger"
+            (click)="remove(i)"
+          >
             remover
           </button>
         </p>
+
+        <div *ngIf="selectedItem"> 
+          <h2>details item</h2>
+          <p>Código {{ selectedItem.Codigo }}</p>
+          <p>Descrição {{ selectedItem.Descricao }}</p>
+          <p>
+            Classificação:
+            {{ selectedItem.Classificacao }}
+          </p>
+          <p> 
+            Descricao
+            {{ selectedItem.
+            Descricao }} 
+        </p>
+          <p>
+            Executora
+            {{ selectedItem.Executora}}
+          </p>
+          <p>
+            Origem
+            {{ selectedItem.Origem}}
+          </p>
+          <p>
+            Porte
+          {{ selectedItem.Porte }}
+          </p>
+          <p> Qtde Ut {{ selectedItem.QtdeUt }} </p>
+          <p>
+            Quantidade
+            {{ selectedItem.Quantidade }}
+          </p>
+          <p>
+            TISSTipoDeTabela
+            {{ selectedItem.TISSTipoDeTabela }}
+          </p>
+          <p> 
+            Total
+           {{ selectedItem.Total }}
+          </p>
+          <p>
+            AM8
+           {{ selectedItem.AM8 }}
+          </p>
+          
+        </div>
+
       </div>
+    
     </div>
 
-    
-    <button
-    type="submit"
-    class="btn btn-success"
-    *ngIf="step === 4"    
-      >
+    <button type="submit" class="btn btn-success" *ngIf="step === 4">
       Finalizar
     </button>
-    
+
     <div *ngIf="step === 5">
       <h1>Guia envianda com sucesso!</h1>
 
-      <button
-        type="button"
-        class="btn btn-success"
-        routerLink="/mf-mainpage"
-      >
+      <button type="button" class="btn btn-success" routerLink="/mf-mainpage">
         Realizar um novo atendimento
       </button>
     </div>

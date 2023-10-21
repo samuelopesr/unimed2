@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ficha } from './ficha';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { map } from 'rxjs'
 
 @Injectable({
@@ -8,6 +8,9 @@ import { map } from 'rxjs'
 })
 export class FichaService {
 
+  private dbPath = '/dbMateriais'
+  itemsRef: AngularFireList<any>
+  itemsIndex: {[ key: number ]: any} = {}
 
   insert(ficha: ficha){
     this.database.list('ficha').push(ficha).then((result:any) => {
@@ -22,6 +25,22 @@ export class FichaService {
     })
   }
 
+
+  getItemByCode(code: number) {
+    return this.itemsIndex[code];
+  }
+
+  getItem()
+  {
+    return this.itemsRef.snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }));
+      })
+    );
+  }
+ 
   getAll(){
     return this.database.list('ficha')
     .snapshotChanges().pipe(
@@ -31,9 +50,23 @@ export class FichaService {
         }))
       })
     )
+
+
   }
 
-  constructor(public database: AngularFireDatabase) { }
+  
+
+  constructor(public database: AngularFireDatabase) { 
+    this.itemsRef = database.list(this.dbPath);
+    this.getItem().subscribe((items) => {
+      this.itemsIndex = {};
+      items.forEach((item) => {
+        this.itemsIndex[item.Codigo] = item
+      })
+    })
+
+    
+  }
 
   
 }

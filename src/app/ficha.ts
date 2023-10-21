@@ -1,6 +1,6 @@
 export class ficha {
 
-    nomeMaterial:  string = '';
+    codigoMaterial: number = 0;
     qtdeMaterial: string = '';
     proced: string = '';
     cpf: string = '';
@@ -8,7 +8,7 @@ export class ficha {
     nomeBen: string = '';
     nConselhoC: string = '';
     nConselhoP: string = '';
-    materiais: { nome: string, quantidade: string }[] = [];
+    materiais: { codigo: number, quantidade: string }[] = [];
     fornecedores: string[] = [];
     orcamento: string = '';
     
