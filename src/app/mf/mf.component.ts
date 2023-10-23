@@ -28,7 +28,7 @@ export class MfComponent implements OnInit{
       codigo, 
       quantidade
     })
-
+    
     codigo = this.searchCode
 
     this.selectedItem = this.fichaService.getItemByCode(codigo);

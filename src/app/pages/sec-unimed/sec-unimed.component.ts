@@ -15,12 +15,26 @@ import { FichaService } from 'src/app/ficha.service';
 export class SecUnimedComponent {
   fichas: Observable<any> = new Observable<any>();
 
+  selectedItem: any
 
   constructor(
     private fichaDataService: DataFichaService,
     private fichaService: FichaService,
     private db: AngularFireDatabase
-  ) {}
+  ) { 
+  }
+
+  showCode(code: number)
+  { 
+     
+    this.selectedItem = this.fichaService.getItemByCode(code)
+
+    if(this.selectedItem)
+    {
+      console.log(this.selectedItem);
+    }
+
+  }
 
   ngOnInit() {
     this.fichas = this.fichaService.getAll();

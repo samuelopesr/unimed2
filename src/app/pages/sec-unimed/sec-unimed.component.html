@@ -67,6 +67,12 @@
               {{ ficha.nConselhoC }}
             </strong>
           </li>
+          <li class="nav-item active">
+            codigo
+            <strong>
+              {{ ficha.codigoMaterial }}
+            </strong>
+          </li>
         </ul>
 
         <button type="button" class="btn btn-primary">
@@ -76,6 +82,56 @@
         <button type="button" class="btn btn-primary">
           Acesso ao prontuário eletrônico
         </button>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="showCode(ficha.codigoMaterial)"
+        >
+          Acessar código referente ao paciente
+        </button>
+        <div *ngIf="selectedItem">
+          <h2>details item</h2>
+          <p>Código {{ selectedItem.Codigo }}</p>
+          <p>Descrição {{ selectedItem.Descricao }}</p>
+          <p>
+            Classificação:
+            {{ selectedItem.Classificacao }}
+          </p>
+          <p>
+            Descricao
+            {{ selectedItem.Descricao }}
+          </p>
+          <p>
+            Executora
+            {{ selectedItem.Executora }}
+          </p>
+          <p>
+            Origem
+            {{ selectedItem.Origem }}
+          </p>
+          <p>
+            Porte
+            {{ selectedItem.Porte }}
+          </p>
+          <p>Qtde Ut {{ selectedItem.QtdeUt }}</p>
+          <p>
+            Quantidade
+            {{ selectedItem.Quantidade }}
+          </p>
+          <p>
+            TISSTipoDeTabela
+            {{ selectedItem.TISSTipoDeTabela }}
+          </p>
+          <p>
+            Total
+            {{ selectedItem.Total }}
+          </p>
+          <p>
+            AM8
+            {{ selectedItem.AM8 }}
+          </p>
+        </div>
       </div>
     </nav>
 
