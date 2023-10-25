@@ -15,7 +15,9 @@
       class="navbar navbar-dark bg-dark"
       style="width: 50%; border-radius: 5px"
     >
+      
       <h1 class="navbar-brand">{{ ficha.nomeBen }}</h1>
+      <h1 class="navbar-brand">{{ selectedItem }}</h1>
 
       <button
         class="navbar-toggler"
@@ -79,17 +81,17 @@
           Enviar p/ avaliador
         </button>
 
-        <button type="button" class="btn btn-primary">
+        <button (click)="teste()" type="button" class="btn btn-primary">
           Acesso ao prontuário eletrônico
         </button>
 
-        <button
+        <!-- <button
           type="button"
           class="btn btn-primary"
           (click)="showCode(ficha.codigoMaterial)"
         >
           Acessar código referente ao paciente
-        </button>
+        </button> -->
         <div *ngIf="selectedItem">
           <h2>details item</h2>
           <p>Código {{ selectedItem.Codigo }}</p>
