@@ -11,6 +11,4 @@ export class ficha {
     materiais: { nome: string, quantidade: string }[] = [];
     fornecedores: string[] = [];
     orcamento: string = '';
-    
-  
 }

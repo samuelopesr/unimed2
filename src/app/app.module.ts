@@ -36,7 +36,7 @@ import { SecUnimedComponent } from './pages/sec-unimed/sec-unimed.component';
       messagingSenderId: '762283964156',
       appId: '1:762283964156:web:61c090fead76ad73858979',
       measurementId: 'G-2SNL2NXJDC',
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

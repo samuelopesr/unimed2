@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { DataFichaService } from 'src/app/ficha-data.service';
 import { FichaService } from 'src/app/ficha.service';
 
+
+
+
 @Component({
   selector: 'app-sec-unimed',
   templateUrl: './sec-unimed.component.html',
@@ -11,12 +14,11 @@ import { FichaService } from 'src/app/ficha.service';
 })
 export class SecUnimedComponent {
   fichas:  Observable<any> = new Observable<any>()
-
+  
+  public sidebarShow: boolean = true;
 
   
   constructor(private fichaDataService: DataFichaService, private fichaService: FichaService,private db: AngularFireDatabase){
-
-    
   }
   
 

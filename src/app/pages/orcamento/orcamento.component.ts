@@ -13,6 +13,7 @@ import { FichaService } from 'src/app/ficha.service';
 })
 export class OrcamentoComponent {
   fichas:  Observable<any> = new Observable<any>()
+  public sidebarShow: boolean = true;
 
   newForn1 = '' as string
   newForn2 = '' as string
