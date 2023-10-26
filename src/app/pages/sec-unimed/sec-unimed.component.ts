@@ -28,22 +28,9 @@ export class SecUnimedComponent {
       codRef.valueChanges().subscribe(items => 
         {
           console.log(items);
-          for (const item of items) {
-            this.selectedItem = item
-            // console.log(this.selectedItem.codigoMaterial);
-            fichaService.getItemByCode(this.selectedItem.codigoMaterial)
-          }
+          
         })
       }
-
-   
-  // showCode(code: number) {
-  //   this.selectedItem = this.fichaService.getItemByCode(code);
-
-  //   if (this.selectedItem) {
-  //     console.log(this.selectedItem);
-  //   }
-  // }
 
   ngOnInit() {
     this.fichas = this.fichaService.getAll();
