@@ -22,7 +22,7 @@ export class SecUnimedComponent {
     private fichaService: FichaService,
     private db: AngularFireDatabase,
      ) {
-      const codRef = this.db.list('dbMateriais')
+      const codRef = this.db.list('ficha')
       console.log(codRef);
 
       codRef.valueChanges().subscribe(items => 
@@ -30,10 +30,11 @@ export class SecUnimedComponent {
           console.log(items);
           for (const item of items) {
             this.selectedItem = item
-            console.log(this.selectedItem.Codigo);
+            // console.log(this.selectedItem.codigoMaterial);
+            fichaService.getItemByCode(this.selectedItem.codigoMaterial)
           }
         })
-     }
+      }
 
    
   // showCode(code: number) {
