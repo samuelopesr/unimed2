@@ -15,33 +15,27 @@ import { FichaService } from 'src/app/ficha.service';
 })
 export class SecUnimedComponent {
   fichas: Observable<any> = new Observable<any>();
-
-  
-  
-  codigoMaterial: any = this.fichas.forEach((ficha) => {
-    for (const i of ficha) {
-     return i.codigoMaterial
-    }
-  });
-
-  selectedItem: any = this.fichaService.getItemByCode(this.codigoMaterial)
+  selectedItem: any 
 
   constructor(
     private fichaDataService: DataFichaService,
     private fichaService: FichaService,
-    private db: AngularFireDatabase
-  ) {}
+    private db: AngularFireDatabase,
+     ) {
+      const codRef = this.db.list('dbMateriais')
+      console.log(codRef);
 
-  teste() {
-    this.fichas.forEach((ficha) => {
-      for (const item of ficha) {
-        console.log(item.codigoMaterial);
-        
-      }
-    });
+      codRef.valueChanges().subscribe(items => 
+        {
+          console.log(items);
+          for (const item of items) {
+            this.selectedItem = item
+            console.log(this.selectedItem.Codigo);
+          }
+        })
+     }
 
-  }
-
+   
   // showCode(code: number) {
   //   this.selectedItem = this.fichaService.getItemByCode(code);
 

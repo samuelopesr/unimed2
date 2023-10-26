@@ -17,7 +17,7 @@
     >
       
       <h1 class="navbar-brand">{{ ficha.nomeBen }}</h1>
-      <h1 class="navbar-brand">{{ selectedItem }}</h1>
+      <h1 class="navbar-brand" *ngIf="selectedItem"> {{ selectedItem.Classificacao }} </h1>
 
       <button
         class="navbar-toggler"
@@ -81,7 +81,7 @@
           Enviar p/ avaliador
         </button>
 
-        <button (click)="teste()" type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary">
           Acesso ao prontuário eletrônico
         </button>
 
