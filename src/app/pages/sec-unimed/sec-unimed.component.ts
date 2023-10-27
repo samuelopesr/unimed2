@@ -18,11 +18,21 @@ export class SecUnimedComponent {
   public codigo: any;
   public selectedItem: any;
 
+  public openClose: boolean = false;
+
   constructor(
     private fichaDataService: DataFichaService,
     private fichaService: FichaService,
     private db: AngularFireDatabase
   ) {}
+
+  public open() {
+    if (this.openClose === false) {
+      this.openClose = true;
+    } else {
+      this.openClose = false;
+    }
+  }
 
   ngOnInit() {
     this.fichas = this.fichaService.getAll();
