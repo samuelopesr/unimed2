@@ -17,7 +17,7 @@
     >
       
       <h1 class="navbar-brand">{{ ficha.nomeBen }}</h1>
-      <h1 class="navbar-brand" *ngIf="selectedItem"> {{ selectedItem.Classificacao }} </h1>
+      <h1 class="navbar-brand"> {{ selectedItem.Classificacao }} </h1>
 
       <button
         class="navbar-toggler"
@@ -92,7 +92,7 @@
         >
           Acessar código referente ao paciente
         </button> -->
-        <div *ngIf="selectedItem">
+        <div>
           <h2>details item</h2>
           <p>Código {{ selectedItem.Codigo }}</p>
           <p>Descrição {{ selectedItem.Descricao }}</p>
