@@ -15,8 +15,8 @@ import { FichaService } from 'src/app/ficha.service';
 })
 export class SecUnimedComponent {
   fichas: Observable<any> = new Observable<any>();
-  public codigo: any
-  public selectedItem: any 
+  public codigo: any;
+  public selectedItem: any;
 
   constructor(
     private fichaDataService: DataFichaService,
@@ -24,31 +24,23 @@ export class SecUnimedComponent {
     private db: AngularFireDatabase
   ) {}
 
-
   ngOnInit() {
     this.fichas = this.fichaService.getAll();
 
-    this.fichas.forEach(ficha => {
-     for (const key in ficha) {
-      if(ficha.hasOwnProperty(key))
-      {
-        this.codigo = ficha[key].codigoMaterial;
-        console.log(this.codigo);
-        
-        this.selectedItem = this.fichaService.getItemByCode(this.codigo)
-        
-        
-        console.log(this.selectedItem);
-        if(this.selectedItem)
-        {
-          console.log(true);
-        }
+    this.fichas.forEach((ficha) => {
+      for (const key in ficha) {
+        if (ficha.hasOwnProperty(key)) {
+          this.codigo = ficha[key].codigoMaterial;
+          console.log(this.codigo);
 
-        
-        
+          this.selectedItem = this.fichaService.getItemByCode(this.codigo);
+
+          console.log(this.selectedItem);
+          if (this.selectedItem) {
+            console.log(true);
+          }
+        }
       }
-    }
-    
-  });
+    });
   }
 }
