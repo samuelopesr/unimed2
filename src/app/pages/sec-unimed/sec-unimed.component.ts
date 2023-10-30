@@ -15,54 +15,42 @@ import { FichaService } from 'src/app/ficha.service';
 })
 export class SecUnimedComponent {
   fichas: Observable<any> = new Observable<any>();
-  public selectedItem: any 
-  c: any 
+  public codigo: any;
+  public selectedItem: any;
+
+  public openClose: boolean = false;
+
   constructor(
     private fichaDataService: DataFichaService,
     private fichaService: FichaService,
-    private db: AngularFireDatabase,
-     ) {
-      const codRef = this.db.list('dbMateriais')
-      const outroRef = this.db.list('ficha')
-      console.log(codRef);
+    private db: AngularFireDatabase
+  ) {}
 
-      codRef.valueChanges().subscribe(items => 
-        {
-          console.log(items);
-          for (const item of items) {
-            this.selectedItem.Codigo = item
-            
-            
-          }
-        })
-
-
-      
-
-      // codRef.valueChanges().subscribe(items => 
-      //   {
-      //     for (const key in items) {
-      //       if (Object.prototype.hasOwnProperty.call(items, key)) {
-      //         let element: any = items[key]
-      //         console.log(key, element[1]);
-              
-      //       }
-            
-      //     }
-      //     // this.selectedItem = this.fichaService.getItemByCode();
-      //   })
-      }
-
-   
-  // showCode(code: number) {
-  //   this.selectedItem = this.fichaService.getItemByCode(code);
-
-  //   if (this.selectedItem) {
-  //     console.log(this.selectedItem);
-  //   }
-  // }
+  public open() {
+    if (this.openClose === false) {
+      this.openClose = true;
+    } else {
+      this.openClose = false;
+    }
+  }
 
   ngOnInit() {
     this.fichas = this.fichaService.getAll();
+
+    this.fichas.forEach((ficha) => {
+      for (const key in ficha) {
+        if (ficha.hasOwnProperty(key)) {
+          this.codigo = ficha[key].codigoMaterial;
+          console.log(this.codigo);
+
+          this.selectedItem = this.fichaService.getItemByCode(this.codigo);
+
+          console.log(this.selectedItem);
+          if (this.selectedItem) {
+            console.log(true);
+          }
+        }
+      }
+    });
   }
 }
