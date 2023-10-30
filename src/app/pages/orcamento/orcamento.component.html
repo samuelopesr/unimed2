@@ -1,130 +1,138 @@
 <section >
-  <div class="container">
-    <div class="search row" style="margin-top: 10%;">
-      <h1 class="col-sm-4 text-center "style="font-size: 3.5rem;">Orçamento</h1>
-      <div class="input-group col-sm-8 mt-4 ">
-        <div class="input-group-prepend  "></div>
-        <input type="text" class="form-control w-50"  />
-        <button class="btn btn-primary ml-2 h-75 " type="submit">Pesquisar</button>
-      </div>
-    </div>
-    
-    <div id="accordion">
-    <div class="card mt-2" *ngFor="let ficha of fichas | async">
-      <div class="card-header" id="headingOne " >
-        <h5 class="mb-0">
-          <button class="btn  w-100 text-left " data-toggle="collapse" [attr.data-target]="'#ex' + ficha.key" aria-expanded="true" aria-controls="collapseOne " >
-            <div class="row">
-              <h1 class="navbar-brand col">{{ ficha.nomeMaterial }}</h1>
-              <h1 class="col mt-2" style="font-size: 1.25rem;">
-               Movinox
-              </h1>
-              
-              <h1 class="col mt-2" style="font-size: 1.25rem;">
-                (55)***********
-                  
-              </h1>
-              <h1 class="col mt-2" style="font-size: 1.25rem;">
-                {{ ficha.qtdeMaterial }}
-                
-              </h1>
-              <h1 class="col mt-2 text-center " style="font-size: 1.25rem; background-color: rgb(166, 231, 216); color: rgb(36, 152, 125);border: 1px solid rgb(36, 152, 125) ; border-radius: 10px;padding: 0;  ">
-                R$: 15,00
-                
-              </h1>
-              
-            </div>
-          </button>
-        </h5>
-      </div>
-     
-
-
-     
+  <div class="container" style="border-radius: 20px;">
+    <div style="background-color: white;border-radius: 20px;margin-top: 10%;">
+      <div class="search row">
+        <h1 class="col-sm-4 text-center "style="font-size: 3.5rem;">Orçamento</h1>
+        <div class="input-group col-sm-8 mt-4 ">
+          <div class="input-group-prepend  "></div>
+          <input type="text" id="img" class="form-control w-50"  style="border-radius: 20px; background-color: rgb(249, 251, 255);  "  />
+      
+        </div>
         
-
-        <div class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="color: black;" [attr.id]="'ex' + ficha.key" >
-          <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active m-1">
-              ID do beneficiário:
-              <strong>
-                {{ ficha.idBen }}
-              </strong>
-            </li>
-            <li class="nav-item active m-1">
-              Nome do material:
-              <strong>
-                {{ ficha.nomeMaterial }}
-              </strong>
-            </li>
-            <li class="nav-item active m-1">
-              Quantidade dos materiais:
-              <strong>
-                {{ ficha.qtdeMaterial }}
-              </strong>
-            </li>
-            <h2 style="font-size: 1.5rem">Dados do cooperado:</h2>
-            <li class="nav-item active m-2">
-              Nº de conselho (cooperado):
-              <strong>
-                {{ ficha.nConselhoC }}
-              </strong>
-            </li>
-          </ul>
-          <h2 style="font-size: 1.5rem">Relizar orçamento:</h2>
-          <form>
-            <div class="input-group input-group-sm mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm"
-                  >R$:
-                </span>
+      </div>
+    <div class="legenda row  mt-2" style="border-bottom: 0.4px solid  rgb(210, 212, 222);" >
+        <h1 class="col mt-3 text-left" style="font-size: 1.25rem;color: rgb(181, 183, 192);">Material</h1>
+        <h1 class="col mt-3 text-left" style="font-size: 1.25rem;color: rgb(181, 183, 192);">Nome do fornecedor</h1>
+        <h1 class="col mt-3 text-center" style="font-size: 1.25rem;color: rgb(181, 183, 192);">Contato</h1>
+        <h1 class="col mt-3 text-center" style="font-size: 1.25rem;color: rgb(181, 183, 192);">Quantidade</h1>
+        <h1 class="col mt-3 text-center" style="font-size: 1.25rem;color: rgb(181, 183, 192);">Valor</h1>
+    </div>
+      
+      <div id="accordion">
+        <div class="card  mt-2 " *ngFor="let ficha of fichas | async" style="background-color: rgb(255, 255, 255);border-radius: 20px;border: 0px solid ;">
+        <div class="card-header " id="headingOne " style="background-color: rgb(255, 255, 255);" >
+          <h5 class="mb-0">
+            <button class="btn  w-100 text-left  " data-toggle="collapse" [attr.data-target]="'#ex' + ficha.key" aria-expanded="true" aria-controls="collapseOne " >
+              <div class="row">
+                <h1 class="col text-left">{{ ficha.nomeMaterial }}</h1>
+                <h1 class="col mt-1  " style="font-size: 1.25rem;">
+                 Movinox
+                </h1>
+      
+                <h1 class="col mt-1  text-left" style="font-size: 1.25rem;">
+                  (55)***********
+      
+                </h1>
+                <h1 class="col mt-1 text-center" style="font-size: 1.25rem;">
+                  {{ ficha.qtdeMaterial }}
+      
+                </h1>
+                <h1 class="col mt-1 text-center " style="font-size: 1.25rem; background-color: rgb(166, 231, 216); color: rgb(36, 152, 125);border: 1px solid rgb(36, 152, 125) ; border-radius: 10px;padding: 0;  ">
+                  R$: 15,00
+      
+                </h1>
+      
               </div>
-              <input
-              name="orcam"
-                type="number"
-                class="form-control"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-    
-              />
-            </div>
-            <ul class="navbar-nav mr-auto text-light">
-              <li>
-                <select class="mb-2">
-                  <option
-                  selected >Selecione o 1º fornecedor</option>
-                  <option value="1">Fornecedor 1</option>
-                  <option value="2">Fornecedor 2</option>
-                  <option value="3">Fornecedor 3</option>
-                </select>
+            </button>
+          </h5>
+        </div>
+      
+      
+      
+          <div class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="color: black;" [attr.id]="'ex' + ficha.key" >
+            <ul class="navbar-nav mr-auto ">
+              <li class="nav-item active m-1">
+                ID do beneficiário:
+                <strong>
+                  {{ ficha.idBen }}
+                </strong>
               </li>
-              <li>
-                <select class="mb-2">
-                  <option selected>Selecione o 2º fornecedor</option>
-                  <option value="1">Fornecedor 1</option>
-                  <option value="2">Fornecedor 2</option>
-                  <option value="3">Fornecedor 3</option>
-                </select>
+              <li class="nav-item active m-1">
+                Nome do material:
+                <strong>
+                  {{ ficha.nomeMaterial }}
+                </strong>
               </li>
-              <li>
-                <select class="mb-2">
-                  <option selected>Selecione o 3º fornecedor</option>
-                  <option value="1">Fornecedor 1</option>
-                  <option value="2">Fornecedor 2</option>
-                  <option value="3">Fornecedor 3</option>
-                </select>
+              <li class="nav-item active m-1">
+                Quantidade dos materiais:
+                <strong>
+                  {{ ficha.qtdeMaterial }}
+                </strong>
+              </li>
+              <h2 style="font-size: 1.5rem">Dados do cooperado:</h2>
+              <li class="nav-item active m-2">
+                Nº de conselho (cooperado):
+                <strong>
+                  {{ ficha.nConselhoC }}
+                </strong>
               </li>
             </ul>
-            <button 
-            name="addOrc"
-    
-            type="submit"
-            class="btn btn-primary">
-              Atualizar orçamento
-            </button>
-          </form>
+            <h2 style="font-size: 1.5rem">Relizar orçamento:</h2>
+            <form>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm"
+                    >R$:
+                  </span>
+                </div>
+                <input
+                name="orcam"
+                  type="number"
+                  class="form-control"
+                  aria-label="Small"
+                  aria-describedby="inputGroup-sizing-sm"
+      
+                />
+              </div>
+              <ul class="navbar-nav mr-auto text-light">
+                <li>
+                  <select class="mb-2">
+                    <option
+                    selected >Selecione o 1º fornecedor</option>
+                    <option value="1">Fornecedor 1</option>
+                    <option value="2">Fornecedor 2</option>
+                    <option value="3">Fornecedor 3</option>
+                  </select>
+                </li>
+                <li>
+                  <select class="mb-2">
+                    <option selected>Selecione o 2º fornecedor</option>
+                    <option value="1">Fornecedor 1</option>
+                    <option value="2">Fornecedor 2</option>
+                    <option value="3">Fornecedor 3</option>
+                  </select>
+                </li>
+                <li>
+                  <select class="mb-2">
+                    <option selected>Selecione o 3º fornecedor</option>
+                    <option value="1">Fornecedor 1</option>
+                    <option value="2">Fornecedor 2</option>
+                    <option value="3">Fornecedor 3</option>
+                  </select>
+                </li>
+              </ul>
+              <button
+              name="addOrc"
+      
+              type="submit"
+              class="btn btn-primary">
+                Atualizar orçamento
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
