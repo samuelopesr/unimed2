@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
-import { ficha } from 'src/app/ficha';
 import { DataFichaService } from 'src/app/ficha-data.service';
 import { FichaService } from 'src/app/ficha.service';
 

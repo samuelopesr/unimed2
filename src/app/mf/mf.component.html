@@ -1,6 +1,7 @@
 <section class="container-fluid">
   
 
+<<<<<<< HEAD
   <div class="row">
     <div class="col-7" style="background-color: rgb(240, 242, 245);">
       <img style="margin: 7% 0% 7% 35.5%;" src="../../assets/image.png" alt="unimed-logo">
@@ -163,6 +164,186 @@
           voltar
         </button>
       </form>
+=======
+  <form (ngSubmit)="onSubmit()">
+    <p>Começar é fácil</p>
+    <div *ngIf="step === 1" class="id-users form-group">
+      <small>Qual o ID do paciente?</small>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
+      />
+    </div>
+
+    <div *ngIf="step === 2" class="id-users2 form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ID do beneficiário"
+        [(ngModel)]="ficha.idBen"
+        name="idBen"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do beneficiário"
+        [(ngModel)]="ficha.nomeBen"
+        name="ficha.nomeBen"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="CPF do beneficiário"
+        [(ngModel)]="ficha.cpf"
+        name="cpf"
+      />
+    </div>
+
+    <div *ngIf="step === 3" class="id-users3 form-group">
+      <small> Dados do cooperado </small>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nº de conselho (Cooperado)"
+        [(ngModel)]="ficha.nConselhoC"
+        name="nConselhoC"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do procedimento"
+        [(ngModel)]="ficha.proced"
+        name="proced"
+      />
+    </div>
+
+    <div *ngIf="step === 4" class="id-users4 form-group">
+      <small> dados do paciente </small>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nº de conselho (Paciente)"
+        [(ngModel)]="ficha.nConselhoP"
+        name="nConselhoP"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do procedimento"
+        [(ngModel)]="ficha.proced"
+        name="proced"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Código do Material"
+        [(ngModel)]="ficha.codigoMaterial"
+        [(ngModel)]="searchCode"
+        name="newNome"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Quantidade Material"
+        [(ngModel)]="ficha.qtdeMaterial"
+        [(ngModel)]="newQtde"
+        name="newQtde"
+      />
+
+      <button
+        name="addMaterial"
+        type="button"
+        class="btn btn-dark"
+        (click)="addMaterial(searchCode, newQtde)"
+      >
+        Adicionar
+      </button>
+
+      <div *ngFor="let material of ficha.materiais; let i = index">
+        <p>
+          {{ material.codigo }}
+          {{ material.quantidade }}
+          <button
+            name="remove"
+            type="button"
+            class="btn btn-danger"
+            (click)="remove(i)"
+          >
+            remover
+          </button>
+        </p>
+
+        <div *ngIf="selectedItem"> 
+          <h2>details item</h2>
+          <p>Código {{ selectedItem.Codigo }}</p>
+          <p>Descrição {{ selectedItem.Descricao }}</p>
+          <p>
+            Classificação:
+            {{ selectedItem.Classificacao }}
+          </p>
+          <p> 
+            Descricao
+            {{ selectedItem.
+            Descricao }} 
+        </p>
+          <p>
+            Executora
+            {{ selectedItem.Executora}}
+          </p>
+          <p>
+            Origem
+            {{ selectedItem.Origem}}
+          </p>
+          <p>
+            Porte
+          {{ selectedItem.Porte }}
+          </p>
+          <p> Qtde Ut {{ selectedItem.QtdeUt }} </p>
+          <p>
+            Quantidade
+            {{ selectedItem.Quantidade }}
+          </p>
+          <p>
+            TISSTipoDeTabela
+            {{ selectedItem.TISSTipoDeTabela }}
+          </p>
+          <p> 
+            Total
+           {{ selectedItem.Total }}
+          </p>
+          <p>
+            AM8
+           {{ selectedItem.AM8 }}
+          </p>
+          
+        </div>
+
+      </div>
+    
+    </div>
+
+    <button type="submit" class="btn btn-success" *ngIf="step === 4">
+      Finalizar
+    </button>
+
+    <div *ngIf="step === 5">
+      <h1>Guia envianda com sucesso!</h1>
+
+      <button type="button" class="btn btn-success" routerLink="/mf-mainpage">
+        Realizar um novo atendimento
+      </button>
+>>>>>>> 5845488f4ba457b91ebd07477dad1fea199dff1e
     </div>
     <div class="col-5" style="background-color: rgb(240,242,245);">
       <img *ngIf="step === 1" class=" " src="../../assets/Design sem nome (1) 3 (1).png" alt="" style="height: 100%; width: 100%; margin: 0% 0% 0% 2%;">

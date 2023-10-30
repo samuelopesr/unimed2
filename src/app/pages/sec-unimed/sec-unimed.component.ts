@@ -1,28 +1,38 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
+import { ficha } from 'src/app/ficha';
 import { DataFichaService } from 'src/app/ficha-data.service';
 import { FichaService } from 'src/app/ficha.service';
-
-
-
 
 @Component({
   selector: 'app-sec-unimed',
   templateUrl: './sec-unimed.component.html',
-  styleUrls: ['./sec-unimed.component.scss']
+  styleUrls: ['./sec-unimed.component.scss'],
 })
 export class SecUnimedComponent {
-  fichas:  Observable<any> = new Observable<any>()
-  
-  public sidebarShow: boolean = true;
+  fichas: Observable<any> = new Observable<any>();
+  selectedItem: any 
 
-  
-  constructor(private fichaDataService: DataFichaService, private fichaService: FichaService,private db: AngularFireDatabase){
-  }
-  
+  constructor(
+    private fichaDataService: DataFichaService,
+    private fichaService: FichaService,
+    private db: AngularFireDatabase,
+     ) {
+      const codRef = this.db.list('ficha')
+      console.log(codRef);
 
-  ngOnInit(){
-    this.fichas = this.fichaService.getAll()
+      codRef.valueChanges().subscribe(items => 
+        {
+          console.log(items);
+          
+        })
+      }
+
+  ngOnInit() {
+    this.fichas = this.fichaService.getAll();
   }
 }

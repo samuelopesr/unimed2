@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FichaService } from '../ficha.service';
 import { DataFichaService } from '../ficha-data.service';
 import { ficha } from '../ficha';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-mf',
@@ -15,20 +14,31 @@ export class MfComponent implements OnInit{
   ficha: ficha = new ficha();
   key: string = ''; 
   step = 1;
- 
   val = false
 
-  newNome = '' as string
   newQtde = '' as string
 
-  addMaterial(nome: string, quantidade: string)
+  searchCode: number = 0;
+  selectedItem: any;
+  items: any[] = [];
+
+  addMaterial(codigo: number, quantidade: string)
   {
     this.ficha.materiais.push({
-      nome, 
+      codigo, 
       quantidade
     })
+    
+    codigo = this.searchCode
 
-  this.newNome = '';
+    this.selectedItem = this.fichaService.getItemByCode(codigo);
+      if (this.selectedItem) {
+        console.log('Item encontrado:', this.selectedItem);
+      } else {
+        console.log('Item não encontrado');
+      }
+
+ 
   this.newQtde = '';
 
   }
@@ -58,6 +68,9 @@ export class MfComponent implements OnInit{
   }
 
   constructor(private fichaService: FichaService, private fichaData: DataFichaService){ 
+    this.fichaService.getItem().subscribe((items) => {
+      this.items = items;
+    });
   }
 
   ngOnInit(){ 
@@ -69,6 +82,16 @@ export class MfComponent implements OnInit{
       }
     });
   }
+
+  // getItem()
+  // {
+  //   this.selectedItem = this.fichaService.getItemByCode(this.searchCode);
+  //     if (this.selectedItem) {
+  //       console.log('Item encontrado:', this.selectedItem);
+  //     } else {
+  //       console.log('Item não encontrado');
+  //     }
+  // }
 
   onSubmit() {
 
@@ -85,7 +108,8 @@ export class MfComponent implements OnInit{
       }
     }
 
-   
+
+
   }
   
 }
